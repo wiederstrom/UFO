@@ -82,6 +82,7 @@ app.layout = dbc.Container([
         ], width=3),
 
         dbc.Col([
+            html.Div(id='sightings-counter', className="text-end text-muted mb-2", style={"fontSize": "0.9rem"}),
             dcc.Loading(
                 type="circle",
                 children=[
@@ -97,16 +98,16 @@ app.layout = dbc.Container([
             width=12
         )
     ])
-
 ], fluid=True)
 
 @app.callback(
-    Output('ufo-map', 'figure'),
-    Input('country-filter', 'value'),
-    Input('shape-filter', 'value'),
-    Input('start-year-dropdown', 'value'),
-    Input('end-year-dropdown', 'value'),
-    Input('duration-slider', 'value')
+    [Output('ufo-map', 'figure'),
+     Output('sightings-counter', 'children')],
+    [Input('country-filter', 'value'),
+     Input('shape-filter', 'value'),
+     Input('start-year-dropdown', 'value'),
+     Input('end-year-dropdown', 'value'),
+     Input('duration-slider', 'value')]
 )
 def update_map(countries, shapes, start_year, end_year, duration_range):
     dff = df.copy()
@@ -129,7 +130,8 @@ def update_map(countries, shapes, start_year, end_year, duration_range):
         height=600
     )
 
-    return fig
+    counter_text = f"Total sightings: {len(dff):,}"
+    return fig, counter_text
 
 port = int(os.environ.get("PORT", 8051))
 
