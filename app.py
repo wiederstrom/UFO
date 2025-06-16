@@ -8,7 +8,7 @@ import numpy as np
 import os
 
 
-df = pd.read_csv('scrubbed.csv', low_memory=False)
+df = pd.read_csv('data/scrubbed.csv', low_memory=False)
 
 df['datetime'] = pd.to_datetime(df['datetime'], errors='coerce')
 df['year'] = df['datetime'].dt.year
