@@ -15,9 +15,7 @@ All visualizations were developed using Python, Plotly, and Dash, and are presen
 
 The original dataset was difficult to interpret due to its tabular format and volume. The redesigned dashboard includes:
 
-- A map view for spatial patterns
-- A time series line chart showing sighting frequency over time
-- A bar chart for comparing top regions or states
+- A map view for observations
 - Dropdowns and date pickers to filter by year, region, and shape
 
 Each chart uses contrasting but accessible colors, simplified axes, and a clear layout to prioritize interpretability.
