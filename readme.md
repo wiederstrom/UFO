@@ -8,7 +8,6 @@ The dashboard allows users to explore UFO sighting reports, filter them by time 
 
 - Where are UFO sightings most commonly reported?
 - How have sighting frequencies changed over time?
-- Are there hotspots or seasonal trends in certain regions?
 
 All visualizations were developed using Python, Plotly, and Dash, and are presented in a clean, responsive layout.
 
